@@ -23,7 +23,7 @@ body {
 
 /* Simple style for any blank sections at the bottom */
 .blank-section {
-  min-height: 600px;
+  min-height: 129px;
   padding: 80px;
   text-align: center;
   background: #f8f8f8;
@@ -436,14 +436,14 @@ h1 {
   background: linear-gradient(180deg, rgb(21, 40, 72) 0%, rgb(13, 66, 133) 100%);
   -webkit-background-clip: text;
   background-clip: text;
-  -webkit-text-fill-color: transparent;
-  text-fill-color: transparent;
+  -webkit-text-fill-color: transparent; /* Keep this */
   font-family: "Poppins", Helvetica;
   font-weight: 700;
   font-size: 70px;
   line-height: normal;
   white-space: normal;
 }
+
 
 .hero-section .dev {
   position: absolute;
@@ -453,14 +453,14 @@ h1 {
   background: linear-gradient(180deg, rgb(21, 40, 72) 0%, rgb(13, 66, 133) 100%);
   -webkit-background-clip: text;
   background-clip: text;
-  -webkit-text-fill-color: transparent;
-  text-fill-color: transparent;
+  -webkit-text-fill-color: transparent; /* Correct way */
   font-family: "Poppins", Helvetica;
   font-weight: 700;
   font-size: 70px;
   line-height: normal;
   white-space: normal;
 }
+
 
 /* Subheading paragraph */
 .hero-section .p {
@@ -1160,6 +1160,19 @@ h1 {
   line-height: 24.2px;
 }
 
+.about-us .text-wrapper-17 {
+  position: absolute;
+  width: 284px;
+  top: 168px;
+  left: 305px;
+  font-family: "Inter", Helvetica;
+  font-weight: 300;
+  color: #322f2f;
+  font-size: 20px;
+  text-align: center;
+  line-height: 24.2px;
+}
+
 /* ... existing code ... */
 
 .about-us .overlap-2 {
@@ -1357,6 +1370,7 @@ h1 {
     overflow: hidden;
 }
 
+
 /* Ensure these new overlaps follow the same layout as overlap-2 and overlap-4 */
 .overlap-6,
 .overlap-8 {
@@ -1439,16 +1453,25 @@ h1 {
   grid-template-columns: repeat(4, 1fr);
   gap: 30px;
   justify-content: center;
-  align-items: center;
+  align-items: start;
   max-width: 1200px;
-  margin: auto;
+  margin: 300px auto 0;
   position: relative;
-  margin-top: 300px;
-  justify-self: center;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  padding: 0 20px;
+  box-sizing: border-box;
 }
 
 .core .members.show {
   display: grid;
+}
+@media (max-width: 1200px) {
+  .core .members {
+    max-width: 90%;
+    gap: 20px;
+  }
 }
 
 .core .member {
@@ -1458,6 +1481,8 @@ h1 {
   text-align: center;
   width: 200px;
   position: relative;
+  height: auto;
+  margin-bottom: 20px;;
 }
 
 .core .outer-ellipse {
@@ -1491,18 +1516,26 @@ h1 {
 .core .member-info {
   margin-top: 220px;
   text-align: center;
+  width: 100%;
 }
 
 .core .member h3 {
-  font-family: "Inter", sans-serif;
+  font-family: "Inter", Helvetica;
   font-weight: 900;
   font-size: 24px;
-  line-height: 100%;
+  line-height: 1.2;
   color: rgba(8,31,92,1);
-  margin-bottom: 5px;
+  margin-bottom: 10px;
   margin-top: 25px;
+  padding: 0 5px;
+  min-height: 58px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  word-wrap: break-word;
+  width: 100%;
 }
-
 .core .member h3 a {
   text-decoration: none;
   color: inherit;
@@ -1672,7 +1705,7 @@ h1 {
 .core .image-container {
   width: 170px;
   height: 170px;
-  position: absolute;
+  position: relative;
   perspective: 800px;
   display: flex;
   align-items: center;
@@ -1683,11 +1716,8 @@ h1 {
   width: 170px;
   height: 170px;
   position: relative;
-  transform-style: preserve-3d;
-  perspective: 1000px;
-  transition: transform 0.6s ease-in-out;
   cursor: pointer;
-  animation: revolve 1s ease-in-out;
+  transition: all 0.3s ease;
 }
 
 .core .front-image,
@@ -1695,21 +1725,19 @@ h1 {
   width: 100%;
   height: 100%;
   position: absolute;
-  backface-visibility: hidden;
   border-radius: 50%;
   object-fit: cover;
+  transition: opacity 0.3s ease;
 }
 
 .core .back-image {
-  transform: rotateY(0deg);
+  opacity: 1;
+
 }
 
 .core .front-image {
+  opacity: 0;
   display: none;
-}
-
-.core .rotate-180 {
-  transform: rotateY(180deg);
 }
 
 .core .rotate-180 .front-image {
@@ -1728,7 +1756,7 @@ h1 {
 
 @media (max-width: 480px) {
   .core .members {
-      grid-template-columns: repeat(1, 1fr);
+      grid-template-columns: repeat(2, 1fr);
   }
 }
 /* ... existing styles ... */
@@ -1747,11 +1775,7 @@ h1 {
   width: 170px;
   height: 170px;
   position: relative;
-  transform-style: preserve-3d;
-  perspective: 1000px;
-  transition: transform 0.6s ease-in-out;
   cursor: pointer;
-  animation: revolve 1s ease-in-out; 
 }
 
 .core .front-image, 
